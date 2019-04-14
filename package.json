@@ -1,0 +1,19 @@
+{
+  "name": "orcamento_api",
+  "version": "1.0.0",
+  "description": "API para controle de orçamento doméstico",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.10.2"
+  }
+}
