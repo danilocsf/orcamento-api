@@ -9,10 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "pg": "^7.10.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.7.0",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "sequelize-cli": "^5.4.0"
   }
 }
