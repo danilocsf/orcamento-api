@@ -17,6 +17,7 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "jshint": "^2.10.2",
     "sequelize-cli": "^5.4.0"
   }
