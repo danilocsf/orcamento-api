@@ -3,9 +3,9 @@ module.exports = {
     username: 'postgres',
     password: 'postgres',
     database: 'orcamento',
-    host: '127.0.0.1',
+    host: 'postgres-orcamento',
     dialect: 'postgres',
-    port: 5430
+    port: 5432
   },
   test: {
     username: 'database_test',
