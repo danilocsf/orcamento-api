@@ -3,9 +3,9 @@ module.exports = {
     username: 'postgres',
     password: 'postgres',
     database: 'orcamento',
-    host: 'postgres-orcamento',
+    host: 'localhost',
     dialect: 'postgres',
-    port: 5432
+    port: 5430
   },
   test: {
     username: 'database_test',
@@ -19,6 +19,6 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
-    dialect: 'postgres'   
-  }    
+    dialect: 'postgres'
+  }
 };

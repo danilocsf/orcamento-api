@@ -1,4 +1,4 @@
-const DateUtils = require("../utils/DateUtils");
+const DateUtils = require("../utils/dateUtils");
 class Income extends Sequelize.Model {
   static init(sequelize, DataTypes) {
     return super.init(
@@ -21,7 +21,7 @@ class Income extends Sequelize.Model {
         },
         dateOfReceipt: {
           type: DataTypes.DATEONLY,
-          allowNull: true,         
+          allowNull: true,
           comment: "When the value should be/was received"
         },
         description: {

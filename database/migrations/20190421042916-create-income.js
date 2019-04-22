@@ -1,9 +1,9 @@
 'use strict';
 
-const DateUtils = require("../utils/DateUtils");
+const DateUtils = require("../../app/utils/dateUtils");
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, DataTypes) => {
     return queryInterface.createTable('income', {
       id: {
         allowNull: false,

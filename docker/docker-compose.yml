@@ -12,6 +12,10 @@ services:
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
       - ./postgres/config/init-db.sh://docker-entrypoint-initdb.d/init-db.sh
+      - ./postgres/config/postgresql.conf:/var/lib/pgsql/data/postgresql.conf
+      - ./postgres/config/pg_hba.conf:/var/lib/pgsql/data/pg_hba.conf 
+      - ./postgres/config/postgresql.conf:/etc/postgresql/postgresql.conf
+
     restart: unless-stopped
 
   pgadmin:
