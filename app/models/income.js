@@ -1,40 +1,40 @@
 const DateUtils = require("../utils/dateUtils");
 class Income extends Sequelize.Model {
+
+  fillDateOfReceipt() {
+    if(this.receivedValue && !this.dateOfReceipt){
+      this.dateOfReceipt=DateUtils.getCurrentDateWithTheFirstDay();
+    }
+  }
+
   static init(sequelize, DataTypes) {
     return super.init(
       {
         expectedValue: {
           type: DataTypes.DECIMAL(5, 2),
-          allowNull: false,
-          comment: "Value that is expected to be received"
+          allowNull: false
         },
         receivedValue: {
           type: DataTypes.DECIMAL(5, 2),
-          allowNull: true,
-          comment: "The value received"
+          allowNull: true
         },
         referenceMonthYear: {
           type: DataTypes.DATEONLY,
           allowNull: false,
-          default: DateUtils.getCurrentDateWithTheFirstDay(),
-          comment: "The reference month and year for the given value"
+          default: DateUtils.getCurrentDateWithTheFirstDay()
         },
         dateOfReceipt: {
           type: DataTypes.DATEONLY,
-          allowNull: true,
-          comment: "When the value should be/was received"
+          allowNull: true
         },
         description: {
           type: DataTypes.STRING,
-          allowNull: true,
-          comment: "A description for the value (Salary, extra hours, etc)"
+          allowNull: true
         },
         onlyCurrentMonth: {
           type: DataTypes.BOOLEAN,
           allowNull: false,
-          defaultValue: false,
-          comment:
-            "Whether the value should be received only in the given month and year"
+          defaultValue: false
         }
       },
       {
@@ -51,5 +51,20 @@ class Income extends Sequelize.Model {
     );
   }
 }
+
+Income.addHook('beforeUpdate', (income, options) => {
+  // 'transaction' will be available in options.transaction
+  // This operation will be part of the same transaction as the
+  // original Income.update call.
+  Income.fillDateOfReceipt();
+});
+
+Income.addHook('beforeCreate', (income, options) => {
+  // 'transaction' will be available in options.transaction
+  // This operation will be part of the same transaction as the
+  // original Income.create call.
+  Income.fillDateOfReceipt();
+});
+
 
 module.exports = Income;
