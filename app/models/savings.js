@@ -27,7 +27,7 @@ class Savings extends Sequelize.Model {
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            default: true
+            defaultValue: true
         },
         createdAt: DataTypes.DATEONLY,
         updatedAt: DataTypes.DATEONLY
@@ -39,6 +39,7 @@ class Savings extends Sequelize.Model {
         freezeTableName: true,
         // false - don't add the timestamp attributes (updatedAt, createdAt)
         timestamps: true,
+        //
         tableName: "savings",
         sequelize
       }

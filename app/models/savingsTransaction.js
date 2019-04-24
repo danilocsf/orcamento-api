@@ -14,7 +14,7 @@ class SavingsTransaction extends Sequelize.Model {
         referenceMonthYear: {
           type: DataTypes.DATEONLY,
           allowNull: false,
-          default: DateUtils.getCurrentDateWithTheFirstDay()
+          defaultValue: DateUtils.getCurrentDateWithTheFirstDay()
         },
         monthYearValue: {
           type: DataTypes.DECIMAL(5, 2),
@@ -23,13 +23,13 @@ class SavingsTransaction extends Sequelize.Model {
         transactionDate: {
           type: DataTypes.DATEONLY,
           allowNull: false,
-          default: new Date()
+          defaultValue: DataTypes.NOW
         },
         description: {
           type: DataTypes.STRING,
           allowNull: true
         },
-        type: {
+        transactionType: {
           type: DataTypes.ENUM(Object.values(model.TransactionTypes)),
           allownull: false
         },

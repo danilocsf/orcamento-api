@@ -21,7 +21,7 @@ class Income extends Sequelize.Model {
         referenceMonthYear: {
           type: DataTypes.DATEONLY,
           allowNull: false,
-          default: DateUtils.getCurrentDateWithTheFirstDay()
+          defaultValue: DateUtils.getCurrentDateWithTheFirstDay()
         },
         dateOfReceipt: {
           type: DataTypes.DATEONLY,

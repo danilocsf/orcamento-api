@@ -27,7 +27,7 @@ module.exports = {
       active: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        default: true,
+        defaultValue: true,
         comment: "Se a poupança está ativa ou não"
       },
       createdAt: {

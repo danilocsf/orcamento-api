@@ -1,5 +1,7 @@
 'use strict';
 
+const TransactionTypes = require('../../app/models/transactionTypeEnum');
+
 module.exports = {
   up: (queryInterface, DataTypes) => {
     return queryInterface.createTable('savings_transaction', {
@@ -22,7 +24,7 @@ module.exports = {
       transactionDate: {
         type: DataTypes.DATEONLY,
         allowNull: false,
-        default: new Date(),
+        defaultValue: DataTypes.NOW,
         comment: "Data da transação"
       },
       description: {
@@ -30,7 +32,7 @@ module.exports = {
         allowNull: true,
         comment: "Descrição para a transação"
       },
-      type: {
+      transactionType: {
         type: DataTypes.STRING,
         allownull: false,
         comment: "Tipo da transação (depósito, retirada, juros)"
@@ -47,7 +49,15 @@ module.exports = {
       }
     },{
       comment: "registros das transações mensais da poupança",
-    });
+    })
+    .then(() => queryInterface.addConstraint('savings_transaction', ['transactionType'], {
+      type: 'check',
+      where: {
+        transactionType: {
+          [DataTypes.Op.in]: Object.values(TransactionTypes)
+        }
+      }
+    }));
   },
 
   down: (queryInterface, Sequelize) => {
