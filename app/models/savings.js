@@ -1,5 +1,5 @@
 const model = require('./index')
-
+const TableNames = require('../utils/constants');
 
 class Savings extends Sequelize.Model {
 
@@ -40,7 +40,7 @@ class Savings extends Sequelize.Model {
         // false - don't add the timestamp attributes (updatedAt, createdAt)
         timestamps: true,
         //
-        tableName: "savings",
+        tableName: TableNames.SAVINGS,
         sequelize
       }
     );

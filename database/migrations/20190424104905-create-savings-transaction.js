@@ -1,8 +1,10 @@
 'use strict';
 
 const TransactionTypes = require('../../app/models/transactionTypeEnum');
-const TABLE_NAME = 'savings_transaction';
-const SAVINGS_TABLE = 'savings';
+const TableNames = require('../../app/utils/constants');
+
+const TABLE_NAME = TableNames.SAVINGS_TRANSACTION;
+const SAVINGS_TABLE = TableNames.SAVINGS;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {

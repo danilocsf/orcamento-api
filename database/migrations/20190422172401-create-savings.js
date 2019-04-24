@@ -1,6 +1,7 @@
 'use strict';
 
-const TABLE_NAME  = 'savings';
+const TableNames = require('../../app/utils/constants');
+const TABLE_NAME  = TableNames.SAVINGS;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {

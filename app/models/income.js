@@ -1,4 +1,5 @@
 const DateUtils = require("../utils/dateUtils");
+const TableNames = require('../utils/constants');
 class Income extends Sequelize.Model {
 
   fillDateOfReceipt() {
@@ -46,7 +47,7 @@ class Income extends Sequelize.Model {
         freezeTableName: true,
         // don't add the timestamp attributes (updatedAt, createdAt)
         timestamps: true,
-        tableName: "income_record",
+        tableName: TableNames.INCOME,
         sequelize
       }
     );

@@ -1,7 +1,8 @@
 'use strict';
 
-const TABLE_NAME = 'card_transaction';
-const CARD_TABLE_NAME = 'card';
+const TableNames = require('../../app/utils/constants');
+const TABLE_NAME = TableNames.CARD_TRANSACTION;
+const CARD_TABLE_NAME = TableNames.CARD;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {

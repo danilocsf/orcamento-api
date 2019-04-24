@@ -1,7 +1,7 @@
 'use strict';
 
 const TableNames = require('../../app/utils/constants');
-const TABLE_NAME = TableNames.CARD;
+const TABLE_NAME = TableNames.CATEGORY;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
@@ -12,27 +12,16 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      cardNumber: {
+      name :{
         type: DataTypes.STRING,
         allowNull: false,
-        comment: "Número do cartão"
-      },
-      cardOwner: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        comment: "Dono do cartão"
-      },
-      active: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-        comment: "Se o cartão está ativo ou não"
+        comment: "Nome da categoria"
       }
-    },{
-      comment: "Registro de todos os cartões",
+    },
+    {
+      comment: "Registro de todas as categorias"
     });
   },
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable(TABLE_NAME);
   }

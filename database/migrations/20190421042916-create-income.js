@@ -1,6 +1,7 @@
 'use strict';
+const TableNames = require('../../app/utils/constants');
 
-const TABLE_NAME = 'income_record';
+const TABLE_NAME = TableNames.INCOME;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {

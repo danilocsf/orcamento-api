@@ -1,5 +1,6 @@
 const DateUtils = require("../utils/dateUtils");
 const model = require("./index");
+const TableNames = require('../utils/constants');
 
 class SavingsTransaction extends Sequelize.Model {
 
@@ -49,7 +50,7 @@ class SavingsTransaction extends Sequelize.Model {
         freezeTableName: true,
         // false - don't add the timestamp attributes (updatedAt, createdAt)
         timestamps: false,
-        tableName: "savings_transaction",
+        tableName: TableNames.SAVINGS_TRANSACTION,
         sequelize
       }
     );
