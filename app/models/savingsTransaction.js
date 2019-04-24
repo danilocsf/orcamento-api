@@ -1,8 +1,13 @@
 const DateUtils = require("../utils/dateUtils");
-const TransactionTypes = require("./transactionTypeEnum");
+const model = require("./index");
 
 class SavingsTransaction extends Sequelize.Model {
 
+  associate(model) {
+    SavingsTransaction.belongsTo(model.Savings, {
+      foreignKey: 'savingsId'
+    });
+  }
   static init(sequelize, DataTypes) {
     return super.init(
       {
@@ -25,8 +30,16 @@ class SavingsTransaction extends Sequelize.Model {
           allowNull: true
         },
         type: {
-          type: DataTypes.ENUM(Object.values(TransactionTypes)),
+          type: DataTypes.ENUM(Object.values(model.TransactionTypes)),
           allownull: false
+        },
+        savingsId: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: model.Savings,
+            key: 'id'
+          }
         }
       },
       {

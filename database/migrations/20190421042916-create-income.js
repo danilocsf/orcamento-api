@@ -1,10 +1,8 @@
 'use strict';
 
-const DateUtils = require("../../app/utils/dateUtils");
-
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('income', {
+    return queryInterface.createTable('income_record', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,42 +12,50 @@ module.exports = {
       expectedValue: {
         type: DataTypes.DECIMAL(5, 2),
         allowNull: false,
-        comment: "Value that is expected to be received"
+        comment: "Valor esperado a ser recebido no mês/ano de referência"
       },
       receivedValue: {
         type: DataTypes.DECIMAL(5, 2),
         allowNull: true,
-        comment: "The value received in the current month"
+        comment: "Valor de fato recebido durante o mês/ano de referência"
       },
       referenceMonthYear: {
         type: DataTypes.DATEONLY,
         allowNull: false,
-        default: DateUtils.getCurrentDateWithTheFirstDay(),
-        comment: "The reference month and year for the given value"
+        comment: "Mês e ano de referência"
       },
       dateOfReceipt: {
         type: DataTypes.DATEONLY,
         allowNull: true,
-        comment: "When the value should be/was received"
+        comment: "Quando o valor deveria ser/foi recebido"
       },
       description: {
         type: DataTypes.STRING,
         allowNull: true,
-        comment: "A description for the value (Salary, extra hours, etc)"
+        comment: "Descrição do valor (salario, ferias, horas extras, etc)"
       },
       onlyCurrentMonth: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
-        comment:
-            "Whether the value should be received only in the given month and year"
+        comment: "Se o valor deverá ser recebido somente no mês atual ou se é permanente"
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATEONLY,
+        comment: "Data de criação do registro"
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATEONLY,
+        comment: "Data da última alteração do registro"
       }
     },{
-      comment: "Registers of all stable and monthly incomes",
+      comment: "Registro de todas as rendas fixas e mensais."
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('income');
+    return queryInterface.dropTable('income_record');
   }
 };

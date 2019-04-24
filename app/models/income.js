@@ -35,17 +35,18 @@ class Income extends Sequelize.Model {
           type: DataTypes.BOOLEAN,
           allowNull: false,
           defaultValue: false
-        }
+        },
+        createdAt: DataTypes.DATEONLY,
+        updatedAt: DataTypes.DATEONLY
       },
       {
         modelName: "Income",
-        comment: "Registers of all stable and monthly incomes",
         // disable the modification of table names; By default, sequelize will automatically
         // transform all passed model names (first parameter of define) into plural.
         freezeTableName: true,
         // don't add the timestamp attributes (updatedAt, createdAt)
-        timestamps: false,
-        tableName: "income",
+        timestamps: true,
+        tableName: "income_record",
         sequelize
       }
     );

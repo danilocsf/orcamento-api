@@ -1,7 +1,5 @@
 'use strict';
 
-const DateUtils = require("../../app/utils/dateUtils");
-
 module.exports = {
   up: (queryInterface, DataTypes) => {
     return queryInterface.createTable('savings', {
@@ -14,34 +12,36 @@ module.exports = {
       accountNumber: {
         type: DataTypes.STRING,
         allowNull: true,
-        comment: "Savings account number"
+        comment: "Número da poupança"
       },
       currentValue: {
         type: DataTypes.DECIMAL(5, 2),
         allowNull: false,
-        comment: "Current value of savings"
+        comment: "Valor atual da poupança"
       },
       description: {
         type: DataTypes.STRING,
         allowNull: true,
-        comment: "A description for this savings account"
+        comment: "Uma descrição para a poupança"
       },
       active: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         default: true,
-        comment: "Whether the savings account is active or not."
+        comment: "Se a poupança está ativa ou não"
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY,
+        comment: "Data de criação do registro"
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY,
+        comment: "Data da última alteração do registro"
       }
     },{
-      comment: "Registers of all savings accounts",
+      comment: "Registro de todas as poupanças",
     });
   },
 

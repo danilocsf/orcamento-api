@@ -1,4 +1,13 @@
+const model = require('./index')
+
+
 class Savings extends Sequelize.Model {
+
+  associate(model) {
+    Savings.hasMany(model.SavingsTransaction, {
+      foreignKey: 'savingsId'
+    });
+  }
 
   static init(sequelize, DataTypes) {
     return super.init(
@@ -20,8 +29,8 @@ class Savings extends Sequelize.Model {
             allowNull: false,
             default: true
         },
-        createdAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
+        createdAt: DataTypes.DATEONLY,
+        updatedAt: DataTypes.DATEONLY
       },
       {
         modelName: "Savings",
