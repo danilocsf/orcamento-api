@@ -1,10 +1,12 @@
 'use strict';
 
 const TransactionTypes = require('../../app/models/transactionTypeEnum');
+const TABLE_NAME = 'savings_transaction';
+const SAVINGS_TABLE = 'savings';
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('savings_transaction', {
+    return queryInterface.createTable(TABLE_NAME, {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -42,7 +44,7 @@ module.exports = {
         allowNull: false,
         references: {
           //Nome da tabela
-          model: 'savings',
+          model: SAVINGS_TABLE,
           key: 'id'
         },
         comment: "Id da poupança"
@@ -50,7 +52,7 @@ module.exports = {
     },{
       comment: "registros das transações mensais da poupança",
     })
-    .then(() => queryInterface.addConstraint('savings_transaction', ['transactionType'], {
+    .then(() => queryInterface.addConstraint(TABLE_NAME, ['transactionType'], {
       type: 'check',
       where: {
         transactionType: {
@@ -61,6 +63,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('savings');
+    return queryInterface.dropTable(TABLE_NAME);
   }
 };

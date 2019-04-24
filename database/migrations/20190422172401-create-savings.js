@@ -1,8 +1,10 @@
 'use strict';
 
+const TABLE_NAME  = 'savings';
+
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('savings', {
+    return queryInterface.createTable(TABLE_NAME, {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -46,6 +48,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('savings');
+    return queryInterface.dropTable(TABLE_NAME);
   }
 };
