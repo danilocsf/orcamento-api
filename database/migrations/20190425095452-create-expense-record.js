@@ -1,7 +1,7 @@
 'use strict';
 const TableNames = require('../../app/utils/constants').TableNames;
 
-const TABLE_NAME = TableNames.FIXED_EXPENSE;
+const TABLE_NAME = TableNames.EXPENSE_RECORD;
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
@@ -25,39 +25,37 @@ module.exports = {
       referenceMonthYear: {
         type: DataTypes.DATEONLY,
         allowNull: false,
-        comment: "Mês e ano de referência"
-      },     
+        commet: "Mês e ano de referência"
+
+      },
       description: {
         type: DataTypes.STRING,
         allowNull: true,
-        comment: "Descrição do valor a ser gasto"
+        comment: "Descrição do valor gasto"
       },
-      numberOfMonths: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        comment: "Número de meses, caso o valor seja fixo por alguns meses, a partir da data de criação"
+      isFixedExpense: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+        comment: "Se é gasto fixo"
+      },
+      isCardExpense: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+        comment: "Se é gasto do cartão"
       },
       subCategoryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         comment: "Id da subcategoria",
         references: {
-          model: model.SubCategory,
+          model: TableNames.SUB_CATEGORY,
           key: 'id'
         }
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATEONLY,
-        comment: "Data de criação do registro"
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATEONLY,
-        comment: "Data da última alteração do registro"
       }
     },{
-      comment: "Registro de todos os gastos fixos."
+      comment: "Registro de todos os gastos mensais."
     });
   },
 

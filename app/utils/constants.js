@@ -6,11 +6,12 @@ const TableNames = {
     INCOME: "income_record",
     SAVINGS: "savings",
     SAVINGS_TRANSACTION: "savings_transaction",
-    FIXED_EXPENSE: "fixed_expense"
+    FIXED_EXPENSE: "fixed_expense",
+    EXPENSE_RECORD: "expense_record"
 }
 
 const TableConstraints = {
-    UNIQUE_SUB_CATEGORY: "sub_category_unique",    
+    UNIQUE_SUB_CATEGORY: "sub_category_unique",
 }
 
 Object.freeze(TableNames);

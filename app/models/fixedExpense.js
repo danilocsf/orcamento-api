@@ -20,11 +20,6 @@ class FixedExpense extends Sequelize.Model {
           type: DataTypes.DECIMAL(5, 2),
           allowNull: true
         },
-        referenceMonthYear: {
-          type: DataTypes.DATEONLY,
-          allowNull: false,
-          defaultValue: DateUtils.getCurrentDateWithTheFirstDay()
-        },       
         description: {
           type: DataTypes.STRING,
           allowNull: true
@@ -40,9 +35,7 @@ class FixedExpense extends Sequelize.Model {
             model: model.SubCategory,
             key: 'id'
           }
-        },
-        createdAt: DataTypes.DATEONLY,
-        updatedAt: DataTypes.DATEONLY
+        }
       },
       {
         modelName: "FixedExpense",
@@ -50,7 +43,7 @@ class FixedExpense extends Sequelize.Model {
         // transform all passed model names (first parameter of define) into plural.
         freezeTableName: true,
         // don't add the timestamp attributes (updatedAt, createdAt)
-        timestamps: true,
+        timestamps: false,
         tableName: TableNames.FIXED_EXPENSE,
         sequelize
       }

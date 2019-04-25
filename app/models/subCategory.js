@@ -14,7 +14,11 @@ class SubCategory extends Sequelize.Model {
 
     SubCategory.belongsTo(model.FixedExpense, {
       foreignKey: 'subCategoryId'
-    });    
+    });
+
+    SubCategory.belongsTo(model.ExpenseRecords, {
+      foreignKey: 'subCategoryId'
+    });
   }
 
   static init(sequelize, DataTypes) {
