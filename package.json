@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "API para controle de orçamento doméstico",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,5 +17,18 @@
     "babel-register": "^6.26.0",
     "jshint": "^2.10.2",
     "sequelize-cli": "^5.4.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "migrate": "NODE_ENV=development sequelize db:migrate",
+    "migrate-create": "NODE_ENV=development sequelise migration:create --name=",
+    "migrate-undo": "NODE_ENV=development sequelize db:migrate:undo:all",
+    "migrate-undo-one": "NODE_ENV=development sequelize db:migrate:undo",
+    "seeders": "NODE_ENV=development sequelize db:seed:all",
+    "seeders-create": "NODE_ENV=development sequelize seed:generate --name",
+    "seeders-undo-one": "NODE_ENV=development sequelize db:seed:undo",
+    "seeders-undo-file": "NODE_ENV=development sequelize db:seed:undo --seed",
+    "seeders-undo": "NODE_ENV=development sequelize db:seed:undo:all",
+    "debug": "nodemon --nolazy --inspect app.js"
   }
 }
