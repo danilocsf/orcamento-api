@@ -7,6 +7,10 @@ class SubCategory extends Sequelize.Model {
     SubCategory.belongsTo(model.Category, {
       foreignKey: 'categoryId'
     });
+
+    SubCategory.belongsTo(model.CardTransaction, {
+      foreignKey: 'subCategoryId'
+    });
   }
 
   static init(sequelize, DataTypes) {

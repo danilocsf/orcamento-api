@@ -7,6 +7,11 @@ class CardTransaction extends Sequelize.Model {
     CardTransaction.belongsTo(model.Card, {
       foreignKey: 'cardId'
     });
+
+    CardTransaction.belongsTo(model.SubCategory, {
+      foreignKey: 'subCategoryId'
+    });
+
   }
   static init(sequelize, DataTypes) {
     return super.init(
@@ -33,6 +38,14 @@ class CardTransaction extends Sequelize.Model {
           allowNull: false,
           references: {
             model: model.Card,
+            key: 'id'
+          }
+        },
+        subCategoryId: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: model.SubCategory,
             key: 'id'
           }
         }

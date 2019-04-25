@@ -42,6 +42,15 @@ module.exports = {
           key: 'id'
         }
       },
+      subCategoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: "Id da subcategoria",
+        references: {
+          model:  TableNames.SUB_CATEGORY,
+          key: 'id'
+        }
+      },
     },
     {
       comment: "Registro das transações dos cartões"
