@@ -1,10 +1,11 @@
 const TableNames = require('../utils/constants').TableNames;
-
+const Sequelize = require('sequelize');
 class Category extends Sequelize.Model {
 
   associate(model) {
     Category.hasMany(model.SubCategory, {
-      foreignKey: 'categoryId'
+      foreignKey: 'categoryId',
+      as: "subCategories"
     });
   }
 

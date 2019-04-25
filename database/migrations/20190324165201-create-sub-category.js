@@ -5,24 +5,24 @@ const TABLE_NAME = constants.TableNames.SUB_CATEGORY;
 const CATEGORY_TABLE_NAME = constants.TableNames.CATEGORY;
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
+  up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(TABLE_NAME, {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       name :{
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         comment: "Nome da sub categoria"
       },
       categoryId :{
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         comment: "Id da categoria",
-        references: {          
+        references: {
           model: CATEGORY_TABLE_NAME,
           key: 'id'
         }
@@ -31,8 +31,8 @@ module.exports = {
     {
       comment: "Registro de todas as sub categorias"
     })
-    .then(() => 
-      queryInterface.addConstraint(TABLE_NAME, ['name', 'categoryId'], 
+    .then(() =>
+      queryInterface.addConstraint(TABLE_NAME, ['name', 'categoryId'],
         {
           type: 'unique',
           name: constants.TableConstraints.UNIQUE_SUB_CATEGORY

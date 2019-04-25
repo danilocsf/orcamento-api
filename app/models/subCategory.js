@@ -1,6 +1,6 @@
 const TableNames = require('../utils/constants').TableNames;
 const TableConstraints = require('../utils/constants').TableConstraints;
-
+const Sequelize = require('sequelize');
 class SubCategory extends Sequelize.Model {
 
   associate(model) {
