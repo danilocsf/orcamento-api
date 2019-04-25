@@ -5,7 +5,8 @@ const TableNames = {
     SUB_CATEGORY: "sub_category",
     INCOME: "income_record",
     SAVINGS: "savings",
-    SAVINGS_TRANSACTION: "savings_transaction"
+    SAVINGS_TRANSACTION: "savings_transaction",
+    FIXED_EXPENSE: "fixed_expense"
 }
 
 const TableConstraints = {
