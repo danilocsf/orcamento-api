@@ -8,6 +8,12 @@ const TableNames = {
     SAVINGS_TRANSACTION: "savings_transaction"
 }
 
-Object.freeze(TableNames);
+const TableConstraints = {
+    UNIQUE_SUB_CATEGORY: "sub_category_unique",    
+}
 
-module.exports=TableNames;
+Object.freeze(TableNames);
+Object.freeze(TableConstraints);
+
+module.exports.TableNames=TableNames;
+module.exports.TableConstraints=TableConstraints;

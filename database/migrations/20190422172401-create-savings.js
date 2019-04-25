@@ -1,6 +1,6 @@
 'use strict';
 
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 const TABLE_NAME  = TableNames.SAVINGS;
 
 module.exports = {
@@ -15,6 +15,7 @@ module.exports = {
       accountNumber: {
         type: DataTypes.STRING,
         allowNull: true,
+        unique: true,
         comment: "Número da poupança"
       },
       currentValue: {

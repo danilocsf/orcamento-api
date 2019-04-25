@@ -1,6 +1,6 @@
 'use strict';
 
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 const TABLE_NAME = TableNames.CATEGORY;
 
 module.exports = {
@@ -15,6 +15,7 @@ module.exports = {
       name :{
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         comment: "Nome da categoria"
       }
     },

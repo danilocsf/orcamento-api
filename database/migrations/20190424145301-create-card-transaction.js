@@ -1,6 +1,6 @@
 'use strict';
 
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 const TABLE_NAME = TableNames.CARD_TRANSACTION;
 const CARD_TABLE_NAME = TableNames.CARD;
 

@@ -1,5 +1,5 @@
 'use strict';
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 
 const TABLE_NAME = TableNames.INCOME;
 

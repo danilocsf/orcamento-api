@@ -1,5 +1,4 @@
-const model = require('./index')
-const TableNames = require('../utils/constants');
+const TableNames = require('../utils/constants').TableNames;
 
 class Card extends Sequelize.Model {
 
@@ -14,7 +13,8 @@ class Card extends Sequelize.Model {
       {
         cardNumber: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: false,
+          unique: true
         },
         cardOwner: {
           type: DataTypes.STRING,

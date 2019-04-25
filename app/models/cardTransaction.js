@@ -1,6 +1,5 @@
 const DateUtils = require("../utils/dateUtils");
-const TableNames = require('../utils/constants');
-const model = require("./index");
+const TableNames = require('../utils/constants').TableNames;
 
 class CardTransaction extends Sequelize.Model {
 

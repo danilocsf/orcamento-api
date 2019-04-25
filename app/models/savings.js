@@ -1,5 +1,4 @@
-const model = require('./index')
-const TableNames = require('../utils/constants');
+const TableNames = require('../utils/constants').TableNames;
 
 class Savings extends Sequelize.Model {
 
@@ -14,7 +13,8 @@ class Savings extends Sequelize.Model {
       {
         accountNumber: {
           type: DataTypes.STRING,
-          allowNull: true
+          allowNull: true,
+          unique: true
         },
         currentValue: {
           type: DataTypes.DECIMAL(5, 2),

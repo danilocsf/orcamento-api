@@ -1,7 +1,7 @@
 'use strict';
 
 const TransactionTypes = require('../../app/models/transactionTypeEnum');
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 
 const TABLE_NAME = TableNames.SAVINGS_TRANSACTION;
 const SAVINGS_TABLE = TableNames.SAVINGS;

@@ -1,10 +1,9 @@
-const model = require('./index')
-const TableNames = require('../utils/constants');
+const TableNames = require('../utils/constants').TableNames;
 
 class Category extends Sequelize.Model {
 
   associate(model) {
-    Category.hasMany(model.CategoryTag, {
+    Category.hasMany(model.SubCategory, {
       foreignKey: 'categoryId'
     });
   }
@@ -13,7 +12,8 @@ class Category extends Sequelize.Model {
     return super.init({
         name: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: false,
+          unique: true
         }
       },
       {

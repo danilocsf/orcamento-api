@@ -1,6 +1,6 @@
 'use strict';
 
-const TableNames = require('../../app/utils/constants');
+const TableNames = require('../../app/utils/constants').TableNames;
 const TABLE_NAME = TableNames.CARD;
 
 module.exports = {
@@ -15,6 +15,7 @@ module.exports = {
       cardNumber: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         comment: "Número do cartão"
       },
       cardOwner: {

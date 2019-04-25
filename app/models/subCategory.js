@@ -1,4 +1,5 @@
-const TableNames = require('../utils/constants');
+const TableNames = require('../utils/constants').TableNames;
+const TableConstraints = require('../utils/constants').TableConstraints;
 
 class SubCategory extends Sequelize.Model {
 
@@ -12,11 +13,13 @@ class SubCategory extends Sequelize.Model {
     return super.init({
         name: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: false,
+          unique: TableConstraints.UNIQUE_SUB_CATEGORY
         },
         categoryId: {
           type: DataTypes.INTEGER,
           allowNull: false,
+          unique: TableConstraints.UNIQUE_SUB_CATEGORY,
           reference:{
             model: model.Category,
             key: 'id'

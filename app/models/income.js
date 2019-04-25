@@ -1,5 +1,5 @@
 const DateUtils = require("../utils/dateUtils");
-const TableNames = require('../utils/constants');
+const TableNames = require('../utils/constants').TableNames;
 class Income extends Sequelize.Model {
 
   fillDateOfReceipt() {
