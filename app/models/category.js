@@ -4,8 +4,7 @@ class Category extends Sequelize.Model {
 
   associate(model) {
     Category.hasMany(model.SubCategory, {
-      foreignKey: 'categoryId',
-      as: "subCategories"
+      foreignKey: 'categoryId'
     });
   }
 
