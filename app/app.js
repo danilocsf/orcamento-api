@@ -1,6 +1,6 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const incomes = requires('./routes/incomes');
+const express = require("express");
+const bodyParser = require("body-parser");
+const incomes = requires("./routes/incomes");
 const app = express();
 
 app.use(express.json());
@@ -11,8 +11,20 @@ app.use(express.json());
  (when extended is false), or any type (when extended is true).
  */
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api/incomes', incomes);
+app.use("/api/incomes", incomes);
 
+app.use((req, res, next) => {
+  // Informa que qualquer domínio pode acessar os resources
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  );
+
+});
 
 module.exports = app;
-
