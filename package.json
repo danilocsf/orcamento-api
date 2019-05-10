@@ -2,7 +2,7 @@
   "name": "orcamento_api",
   "version": "1.0.0",
   "description": "API para controle de orçamento doméstico",
-  "main": "app.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,7 +19,7 @@
     "sequelize-cli": "^5.4.0"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon server.js",
     "migrate": "NODE_ENV=development sequelize db:migrate",
     "migrate-create": "NODE_ENV=development sequelise migration:create --name=",
     "migrate-undo": "NODE_ENV=development sequelize db:migrate:undo:all",
@@ -29,6 +29,6 @@
     "seeders-undo-one": "NODE_ENV=development sequelize db:seed:undo",
     "seeders-undo-file": "NODE_ENV=development sequelize db:seed:undo --seed",
     "seeders-undo": "NODE_ENV=development sequelize db:seed:undo:all",
-    "debug": "nodemon --nolazy --inspect app.js"
+    "debug": "nodemon --nolazy --inspect server.js"
   }
 }
