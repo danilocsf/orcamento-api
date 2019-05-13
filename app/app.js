@@ -1,6 +1,7 @@
 const express = require("express");
 const incomes = requires("./routes/incomes");
 const cards = requires("./routes/cards");
+const categories = requires("./routes/categories");
 const app = express();
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/incomes", incomes);
 app.use("/api/cards", cards);
+app.use("/api/categories", categories);
 
 app.use((req, res, next) => {
   // Informa que qualquer domínio pode acessar os resources
