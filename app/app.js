@@ -1,7 +1,7 @@
 const express = require("express");
-const incomes = requires("./routes/incomes");
-const cards = requires("./routes/cards");
-const categories = requires("./routes/categories");
+const incomes = require("./routes/incomes");
+const cards = require("./routes/cards");
+const categories = require("./routes/categories");
 const app = express();
 
 app.use(express.json());
