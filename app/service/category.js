@@ -1,18 +1,19 @@
-const Category = require('../models/category');
+const models = require('../models/index');
+
 
 exports.findAll = async () => {
-    return await Category.findAll({
-        order: 'name'
+    return await models.Category.findAll({
+        order: [['name']]
     });
 }
 
 exports.findById = async (id) => {
-    return await Category.findByPK(id);
+    return await models.Category.findByPK(id);
 }
 
 exports.findByName = async (name) => {
-    return await Category.findAll({
+    return await models.Category.findAll({
         where: {name : name},
-        order: 'cardOwner'
+        order: [['name']]
     });
 }
