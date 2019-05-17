@@ -2,7 +2,9 @@ const models = require('../models/index');
 
 exports.findAll = async () => {
     return await models.Card.findAll({
-        order: [['cardOwner']]
+        order: [
+            ['cardOwner']
+        ]
     });
 }
 
@@ -11,12 +13,13 @@ exports.findById = async (id) => {
 }
 
 exports.findByParams = async (params) => {
-
     if (params) {
         const where = await createDynamicWhereClause(params);
         return await models.Card.findAll({
             where: where,
-            order: [['cardOwner']]
+            order: [
+                ['cardOwner']
+            ]
         });
     }
 

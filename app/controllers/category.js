@@ -22,3 +22,18 @@ exports.findByName = async (req, res) => {
         data: category
     });
 }
+
+exports.create = async (req, res) => {
+    const category = await categoryService.create(req.body);
+    res.status(200).json({
+        data: category
+    });
+}
+
+exports.update = async (req, res) => {
+    const id = req.params.id;
+    const category = await categoryService.update(id, req.body);
+    res.status(200).json({
+        data: category
+    });
+}
