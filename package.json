@@ -32,6 +32,7 @@
     "seeders-undo-one": "NODE_ENV=development sequelize db:seed:undo",
     "seeders-undo-file": "NODE_ENV=development sequelize db:seed:undo --seed",
     "seeders-undo": "NODE_ENV=development sequelize db:seed:undo:all",
-    "debug": "nodemon --nolazy --inspect server.js"
+    "debug": "nodemon --nolazy --inspect server.js",
+    "test": "jest"
   }
 }
